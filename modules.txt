@@ -1,0 +1,53 @@
+Slides part
+-----------
+Module+++Time estimate
+1. Python section+++10 min
+2. MySQL section+++10 min
+
+Coding part
+-----------
+Module+++Time estimate
+3. Python setup+++15 min
+4. Data structure: string, list, tuple, dict+++15 min
+5. Control flow: if, while, for+++10 min
+6. Example of crawling reviews from Yelp.com+++60 min
+7. Define function+++10 min
+8. Data I/O+++10 min
+9. MySQL setup+++15 min
+10. MySQL commands+++20 min
+11. Python access MySQL+++40 min
+12. Regular Expression in Python+++30 min
+13. Explain first homework+++15 min
+14. Explain second homework+++15 min
+15. Further references+++5 min
+
+
+================================================================================
+Formatted using ./module_format.py
+================================================================================
+Slides part
+-----------
+Module                                                      Time estimate
+1. Python section                                           10 min
+2. MySQL section                                            10 min
+
+Coding part
+-----------
+Module                                                      Time estimate
+3. Python setup                                             15 min
+4. Data structure: string, list, tuple, dict                15 min
+5. Control flow: if, while, for                             10 min
+6. Example of crawling reviews from Yelp.com                60 min
+7. Define function                                          10 min
+8. Data I/O                                                 10 min
+9. MySQL setup                                              15 min
+10. MySQL commands                                          20 min
+11. Python access MySQL                                     40 min
+12. Regular Expression in Python                            30 min
+13. Explain first homework                                  15 min
+14. Explain second homework                                 15 min
+15. Further references                                      5 min
+
+Total is 4 hours and 40 minutes. For the first Python homework, we need 1, 2, 3, 4, 5, 6, 8, 9, 10, 11. That would be 3 hours 20 minutes for current estimated time.
+
+
