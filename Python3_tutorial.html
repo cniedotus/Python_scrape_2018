@@ -12612,18 +12612,22 @@ div#notebook {
         <span class="n">reviews_count</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="c1"># get the rating</span>
+        <span class="c1"># identify the front of the rating information</span>
         <span class="n">cut_front</span> <span class="o">=</span> <span class="n">page_content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
             <span class="n">rating_start_pattern</span><span class="p">,</span> <span class="n">review_start</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">rating_start_pattern</span><span class="p">)</span>
+        <span class="c1"># identify the end of the rating information</span>
         <span class="n">cut_end</span> <span class="o">=</span> <span class="n">page_content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">rating_end_pattern</span><span class="p">,</span> <span class="n">cut_front</span><span class="p">)</span>
+        <span class="c1"># get the substring for the rating</span>
         <span class="n">rating</span> <span class="o">=</span> <span class="n">page_content</span><span class="p">[</span><span class="n">cut_front</span><span class="p">:</span><span class="n">cut_end</span><span class="p">]</span>
-        <span class="n">rating</span> <span class="o">=</span> <span class="n">rating</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># remove white spaces around</span>
+        <span class="c1"># remove white spaces around</span>
+        <span class="n">rating</span> <span class="o">=</span> <span class="n">rating</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  
 
         <span class="c1"># get the date</span>
         <span class="n">cut_front</span> <span class="o">=</span> <span class="n">page_content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span>
             <span class="n">date_start_pattern</span><span class="p">,</span> <span class="n">cut_end</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">date_start_pattern</span><span class="p">)</span>
         <span class="n">cut_end</span> <span class="o">=</span> <span class="n">page_content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">date_end_pattern</span><span class="p">,</span> <span class="n">cut_front</span><span class="p">)</span>
         <span class="n">date</span> <span class="o">=</span> <span class="n">page_content</span><span class="p">[</span><span class="n">cut_front</span><span class="p">:</span><span class="n">cut_end</span><span class="p">]</span>
-        <span class="n">date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># remove white spaces around</span>
+        <span class="n">date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 
         <span class="c1"># save the data into out_file</span>
         <span class="n">out_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">rating</span><span class="p">,</span> <span class="n">date</span><span class="p">])</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -12809,52 +12813,65 @@ You can modify it for your homework submission.</p>
 
 </div>
 </div>
-</div>These commands are executed in MySQL query tab, not in Python. 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">These</span> <span class="n">commands</span> <span class="n">are</span> <span class="n">executed</span> <span class="ow">in</span> <span class="n">MySQL</span> <span class="n">query</span> <span class="n">tab</span><span class="p">,</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">Python</span><span class="o">.</span> 
 
-In mysql, you need to end all commands with ;
+<span class="n">In</span> <span class="n">mysql</span><span class="p">,</span> <span class="n">you</span> <span class="n">need</span> <span class="n">to</span> <span class="n">end</span> <span class="nb">all</span> <span class="n">commands</span> <span class="k">with</span> <span class="p">;</span>
 
-#
-# ----------------------- In MySQL ------------------
+<span class="c1">#</span>
+<span class="c1"># ----------------------- In MySQL ------------------</span>
 
-# display the database
-show databases;
+<span class="c1"># display the database</span>
+<span class="n">show</span> <span class="n">databases</span><span class="p">;</span>
 
-# create a database named test
-create database test;
+<span class="c1"># create a database named test</span>
+<span class="n">create</span> <span class="n">database</span> <span class="n">test</span><span class="p">;</span>
 
-# choose a database for future commands
-use test;
+<span class="c1"># choose a database for future commands</span>
+<span class="n">use</span> <span class="n">test</span><span class="p">;</span>
 
-# display the tables in test database
-show tables;
+<span class="c1"># display the tables in test database</span>
+<span class="n">show</span> <span class="n">tables</span><span class="p">;</span>
 
-# create a new table named example
-create table example(
-id int not null,
-name varchar(30),
-age tinyint,
-primary key(id));
+<span class="c1"># create a new table named example</span>
+<span class="n">create</span> <span class="n">table</span> <span class="n">example</span><span class="p">(</span>
+<span class="nb">id</span> <span class="nb">int</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span>
+<span class="n">name</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
+<span class="n">age</span> <span class="n">tinyint</span><span class="p">,</span>
+<span class="n">primary</span> <span class="n">key</span><span class="p">(</span><span class="nb">id</span><span class="p">));</span>
 
-# now we should have the example table
-show tables;
+<span class="c1"># now we should have the example table</span>
+<span class="n">show</span> <span class="n">tables</span><span class="p">;</span>
 
-# how was the table example defined again?
-desc example;
+<span class="c1"># how was the table example defined again?</span>
+<span class="n">desc</span> <span class="n">example</span><span class="p">;</span>
 
-# is there anything in the example table?
-select * from example;
+<span class="c1"># is there anything in the example table?</span>
+<span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">example</span><span class="p">;</span>
 
-# import csv file into MySQL database
-load data local infile "C:\\Users\\cxn123430\\Documents\\pythonClass\\data.csv" into table test.example FIELDS TERMINATED BY ',' lines terminated by '\r\n' ignore 1 lines;
+<span class="c1"># import csv file into MySQL database</span>
+<span class="n">load</span> <span class="n">data</span> <span class="n">local</span> <span class="n">infile</span> <span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">cxn123430</span><span class="se">\\</span><span class="s2">Documents</span><span class="se">\\</span><span class="s2">pythonClass</span><span class="se">\\</span><span class="s2">data.csv&quot;</span> <span class="n">into</span> <span class="n">table</span> <span class="n">test</span><span class="o">.</span><span class="n">example</span> <span class="n">FIELDS</span> <span class="n">TERMINATED</span> <span class="n">BY</span> <span class="s1">&#39;,&#39;</span> <span class="n">lines</span> <span class="n">terminated</span> <span class="n">by</span> <span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span> <span class="n">ignore</span> <span class="mi">1</span> <span class="n">lines</span><span class="p">;</span>
 
-# is there anything now?
-select * from example;
+<span class="c1"># is there anything now?</span>
+<span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">example</span><span class="p">;</span>
 
-# drop the table
-drop table example;
+<span class="c1"># drop the table</span>
+<span class="n">drop</span> <span class="n">table</span> <span class="n">example</span><span class="p">;</span>
 
-# does the example table still exist?
-show tables;
+<span class="c1"># does the example table still exist?</span>
+<span class="n">show</span> <span class="n">tables</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12880,9 +12897,22 @@ show tables;
 
 </div>
 </div>
-</div>#
-# ----------------------- In Anaconda Prompt command line(cmd) ------------------
-conda install -c anaconda mysql-connector-python
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#</span>
+<span class="c1"># ----------------------- In Anaconda Prompt command line(cmd) ------------------</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">anaconda</span> <span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -12947,46 +12977,59 @@ conda install -c anaconda mysql-connector-python
 
 </div>
 </div>
-</div># ----------------------- In MySQL ------------------
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ----------------------- In MySQL ------------------</span>
 
-# To get the totoal number of records
-select count(*) from example;
+<span class="c1"># To get the totoal number of records</span>
+<span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">example</span><span class="p">;</span>
 
-# To get age histgram
-select distinct age, count(*) from example group by age;
+<span class="c1"># To get age histgram</span>
+<span class="n">select</span> <span class="n">distinct</span> <span class="n">age</span><span class="p">,</span> <span class="n">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">example</span> <span class="n">group</span> <span class="n">by</span> <span class="n">age</span><span class="p">;</span>
 
-# create a copy of the example table for modifying.
-create table e_copy select * from example;
-select * from e_copy;
+<span class="c1"># create a copy of the example table for modifying.</span>
+<span class="n">create</span> <span class="n">table</span> <span class="n">e_copy</span> <span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">example</span><span class="p">;</span>
+<span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">e_copy</span><span class="p">;</span>
 
-# note that the primary key is not copied to the e_copy table
-desc e_copy;
+<span class="c1"># note that the primary key is not copied to the e_copy table</span>
+<span class="n">desc</span> <span class="n">e_copy</span><span class="p">;</span>
 
-# add the primary key to e_copy table using the alter command
-alter table e_copy add primary key(id);
+<span class="c1"># add the primary key to e_copy table using the alter command</span>
+<span class="n">alter</span> <span class="n">table</span> <span class="n">e_copy</span> <span class="n">add</span> <span class="n">primary</span> <span class="n">key</span><span class="p">(</span><span class="nb">id</span><span class="p">);</span>
 
-# is it done correctly?
-desc e_copy;
+<span class="c1"># is it done correctly?</span>
+<span class="n">desc</span> <span class="n">e_copy</span><span class="p">;</span>
 
-# does MySQL take the primary key seriously?
-insert into e_copy (id, name, age) values (null,'P',6);
-insert into e_copy (id, name, age) values (3,'P',6); 
+<span class="c1"># does MySQL take the primary key seriously?</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">e_copy</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="n">null</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">e_copy</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span> 
 
-# alright, let's insert something else
-insert into e_copy (id, name, age) values (51,'P',6);
-insert into e_copy (id, name, age) values (52,'Q',null);
-insert into e_copy (id, name, age) values (54,'S',null),(55,'T',null);
-insert into e_copy (id, name) values (53,'R');
+<span class="c1"># alright, let&#39;s insert something else</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">e_copy</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">51</span><span class="p">,</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">e_copy</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">52</span><span class="p">,</span><span class="s1">&#39;Q&#39;</span><span class="p">,</span><span class="n">null</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">e_copy</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">54</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">,</span><span class="n">null</span><span class="p">),(</span><span class="mi">55</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="n">null</span><span class="p">);</span>
+<span class="n">insert</span> <span class="n">into</span> <span class="n">e_copy</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">53</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">);</span>
 
-# who is the child with id of 53?
-select * from e_copy where id = 53;
+<span class="c1"># who is the child with id of 53?</span>
+<span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">e_copy</span> <span class="n">where</span> <span class="nb">id</span> <span class="o">=</span> <span class="mi">53</span><span class="p">;</span>
 
-# update the age for this child. 
-update e_copy set age=3 where id=53;
-select * from e_copy where id = 53;
+<span class="c1"># update the age for this child. </span>
+<span class="n">update</span> <span class="n">e_copy</span> <span class="nb">set</span> <span class="n">age</span><span class="o">=</span><span class="mi">3</span> <span class="n">where</span> <span class="nb">id</span><span class="o">=</span><span class="mi">53</span><span class="p">;</span>
+<span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">e_copy</span> <span class="n">where</span> <span class="nb">id</span> <span class="o">=</span> <span class="mi">53</span><span class="p">;</span>
 
-# what's inside the table now?
-select * from e_copy;
+<span class="c1"># what&#39;s inside the table now?</span>
+<span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">e_copy</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -13106,10 +13149,23 @@ select * from e_copy;
 </div>
 </div>
 
-</div>#
-# ----------------------- In MySQL ------------------
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#</span>
+<span class="c1"># ----------------------- In MySQL ------------------</span>
 
-Use the GUI to export the database into a self-contained file (the extension name would be sql)
+<span class="n">Use</span> <span class="n">the</span> <span class="n">GUI</span> <span class="n">to</span> <span class="n">export</span> <span class="n">the</span> <span class="n">database</span> <span class="n">into</span> <span class="n">a</span> <span class="bp">self</span><span class="o">-</span><span class="n">contained</span> <span class="n">file</span> <span class="p">(</span><span class="n">the</span> <span class="n">extension</span> <span class="n">name</span> <span class="n">would</span> <span class="n">be</span> <span class="n">sql</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
